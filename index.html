@@ -303,7 +303,10 @@ function getRankName(lv) {
 }
 
 function updateProfileUI() {
-    document.getElementById('display-name').innerText = userData.name + " 님";
+    document.getElementById('display-name').innerHTML =
+    `<span onclick="changeName()" style="cursor:pointer; text-decoration:underline;">
+        ${userData.name} 님
+    </span>`;
     let rank = getRankName(userData.level);
     document.getElementById('display-level').innerText = `Lv.${userData.level} ${rank}`;
     let xpPercent = userData.xp % 100;
